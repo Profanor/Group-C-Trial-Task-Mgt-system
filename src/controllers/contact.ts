@@ -4,10 +4,10 @@ import handlebars from 'handlebars';
 import fs from 'fs';
 
 const handleContactFormSubmission = async (req: Request, res: Response): Promise<void> => {
-  const { name, email, message } = req.body;
+  const { fullName, email, message } = req.body;
 
   // Validate form data
-  if (!name || !email || !message) {
+  if (!fullName || !email || !message) {
     res.status(400).json({ error: 'Please fill out all fields' });
     return;
   }
@@ -23,7 +23,7 @@ const handleContactFormSubmission = async (req: Request, res: Response): Promise
 
     // Render templates with form data
     const subject = compiledSubjectTemplate({ name });
-    const body = compiledBodyTemplate({ name, email, message });
+    const body = compiledBodyTemplate({ fullName, email, message });
 
     // Create email transporter
     const transporter: Transporter = nodemailer.createTransport({
