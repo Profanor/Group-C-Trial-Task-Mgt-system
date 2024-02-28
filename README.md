@@ -4,19 +4,19 @@ This project implements a contact form feature for a portfolio website, allowing
 
 Table of Contents
 
-Introduction
+- Introduction
 
-Features
+- Features
 
-Technologies Used
+- Technologies Used
 
-Installation
+- Installation
 
-Usage
+- Usage
 
-API Documentation
+- API Documentation
 
-Contributing
+- Contributing
 
 Introduction
 This project aims to enhance a portfolio website by adding a contact form functionality. Visitors to the website can use this form to send messages or inquiries to the website owner or developer.
@@ -33,13 +33,13 @@ Integration with external SMTP service for email delivery.
 
 Technologies Used
 
-Node.js
+- Node.js
 
-Express.js
+- Express.js
 
-Nodemailer
+- Nodemailer
 
-Postman (for API testing and documentation)
+- Postman (for API testing and documentation)
 
 Installation
 Clone the repository:
@@ -71,21 +71,16 @@ npm start
 Access the contact form in your web browser at http://localhost:3000/users/contact.
 
 API Documentation
-
-For API documentation and testing, import the provided Postman collection and environment file. Use Postman to send test requests to the server endpoints and view the API documentation.
+For API documentation and testing, import the provided Postman collection and environment file. Use Postman to send test requests to the server endpoints and view the API documentation 
+https://documenter.getpostman.com/view/31288774/2sA2rDxgXq
 
 Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-Fork the repository.
-
-Create a new branch (git checkout -b feature/new-feature).
-
-Make your changes.
-
-Commit your changes (git commit -am 'Add new feature').
-
-Push to the branch (git push origin feature/new-feature).
-
-Create a new Pull Request.
+- Fork the repository.
+- Create a new branch (git checkout -b feature/new-feature).
+- Make your changes.
+- Commit your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature/new-feature).
+- Create a new Pull Request.
