@@ -44,25 +44,26 @@ Technologies Used
 Installation
 Clone the repository:
 git clone <repository_url>
+
 Install dependencies:
 npm install
 
 Usage
 Set up environment variables:
 
-Create a .env file in the project root directory.
+- Create a .env file in the project root directory.
 
 Add the following variables:
 
-PORT=3000
+- PORT=3000
 
-SMTP_SERVICE=your_smtp_service
+- SMTP_SERVICE=your_smtp_service
 
-SMTP_USER=your_smtp_username
+- SMTP_USER=your_smtp_username
 
-SMTP_PASS=your_smtp_password
+- SMTP_PASS=your_smtp_password
 
-DESTINATION_EMAIL=your_destination_email
+- DESTINATION_EMAIL=your_destination_email
 
 Start the server:
 
@@ -71,6 +72,7 @@ npm start
 Access the contact form in your web browser at http://localhost:3000/users/contact.
 
 API Documentation
+
 For API documentation and testing, import the provided Postman collection and environment file. Use Postman to send test requests to the server endpoints and view the API documentation 
 https://documenter.getpostman.com/view/31288774/2sA2rDxgXq
 
