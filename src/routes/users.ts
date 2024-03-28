@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.send('Hi user');
 });
 
-// Route for handling form submission
+// Route for handling contact form submission
 router.post('/contact', handleContactFormSubmission);
 
 export default router;

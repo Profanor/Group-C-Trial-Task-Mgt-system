@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import debounce from 'lodash/debounce';
+import { Home, Person, Work, Build, Star, Email } from '@material-ui/icons';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -39,26 +40,25 @@ const Navbar = () => {
     <nav className="navbar-container">
       <div className="navbar-logo">
         <Link to="/" className="navbar-link">
-          <p className="navbar-logo-text">John Doe</p>
+          <button className='logo-btn'>David</button>
         </Link>
       </div>
 
       <div className={`navbar-links ${windowWidth < 768 ? 'responsive' : ''}`}>
         {[
-          { label: 'Home', id: 'home' },
-          { label: 'About me', id: 'about' },
-          { label: 'Portfolio', id: 'portfolio' },
-          { label: 'Service', id: 'service' },
-          { label: 'Reviews', id: 'reviews' },
-          { label: 'Contact', id: 'contact' }
+          { label: 'Home', id: 'home', icon: <Home style={{ color: 'black' }} /> },
+          { label: 'About me', id: 'about', icon: <Person style={{ color: 'black' }} /> },
+          { label: 'Portfolio', id: 'portfolio', icon: <Work style={{ color: 'black' }} /> },
+          { label: 'Service', id: 'service', icon: <Build style={{ color: 'black' }} /> },
+          { label: 'Reviews', id: 'reviews', icon: <Star style={{ color: 'black' }} /> },
+          { label: 'Contact', id: 'contact', icon: <Email style={{ color: 'black' }} /> }
         ].map((item, index) => (
-          <div key={index}>
+          <div key={index} className={`neomorphic-link ${activeLink === item.label.toLowerCase() ? 'active' : ''}`}>
             <Link
               to="/"
-              className={`navbar-link ${activeLink === item.label.toLowerCase() ? 'active' : ''}`}
               onClick={handleLinkClick(item.label.toLowerCase(), item.id)}
             >
-              {item.label}
+              {item.icon}
             </Link>
           </div>
         ))}

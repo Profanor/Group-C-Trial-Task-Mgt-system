@@ -1,0 +1,32 @@
+.parent-cont {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    overflow: hidden;
+    margin-top: 80px;
+    height: 80vh;
+}
+ h1 {
+    text-align: center;
+}
+.hi {
+    color: #F2994A;
+}
+@keyframes typing {
+    0% {
+        width: 0;
+        margin-left: 1%; /* Start typing from the middle */
+    }
+    100% {
+        width: 100%;
+        margin-left: 0; /* Move cursor to the end */
+    }
+}
+.typewriter {
+    overflow: hidden; /* Ensures text is not visible until animated */
+    border-right: .15em solid white; /* Blinking cursor */
+    white-space: nowrap; /* Keeps text on a single line */
+    animation: typing 3s steps(20) forwards;
+}

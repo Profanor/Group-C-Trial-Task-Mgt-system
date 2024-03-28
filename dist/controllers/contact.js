@@ -16,9 +16,9 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 const handlebars_1 = __importDefault(require("handlebars"));
 const fs_1 = __importDefault(require("fs"));
 const handleContactFormSubmission = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, email, message } = req.body;
+    const { fullName, email, message } = req.body;
     // Validate form data
-    if (!name || !email || !message) {
+    if (!fullName || !email || !message) {
         res.status(400).json({ error: 'Please fill out all fields' });
         return;
     }
@@ -30,8 +30,8 @@ const handleContactFormSubmission = (req, res) => __awaiter(void 0, void 0, void
         const compiledSubjectTemplate = handlebars_1.default.compile(subjectTemplate);
         const compiledBodyTemplate = handlebars_1.default.compile(bodyTemplate);
         // Render templates with form data
-        const subject = compiledSubjectTemplate({ name });
-        const body = compiledBodyTemplate({ name, email, message });
+        const subject = compiledSubjectTemplate({ name: fullName });
+        const body = compiledBodyTemplate({ fullName, email, message });
         // Create email transporter
         const transporter = nodemailer_1.default.createTransport({
             service: process.env.SMTP_SERVICE,

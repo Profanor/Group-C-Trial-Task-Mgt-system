@@ -22,7 +22,7 @@ const handleContactFormSubmission = async (req: Request, res: Response): Promise
     const compiledBodyTemplate = handlebars.compile(bodyTemplate);
 
     // Render templates with form data
-    const subject = compiledSubjectTemplate({ name });
+    const subject = compiledSubjectTemplate({ name: fullName });
     const body = compiledBodyTemplate({ fullName, email, message });
 
     // Create email transporter
