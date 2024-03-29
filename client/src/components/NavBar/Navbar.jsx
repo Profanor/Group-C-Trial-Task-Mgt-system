@@ -30,7 +30,6 @@ const Navbar = () => {
 
   const handleLinkClick = (link, elementId) => {
     return (e) => {
-      e.preventDefault();
       smoothScrollTo(elementId);
       setActiveLink(link);
     };
@@ -55,7 +54,7 @@ const Navbar = () => {
         ].map((item, index) => (
           <div key={index} className={`neomorphic-link ${activeLink === item.label.toLowerCase() ? 'active' : ''}`}>
             <Link
-              to="/"
+              to={`/${item.id}`}
               onClick={handleLinkClick(item.label.toLowerCase(), item.id)}
             >
               {item.icon}

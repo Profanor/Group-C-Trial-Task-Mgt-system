@@ -108,19 +108,19 @@
     border-width: 1px;
     border-style: solid;
     border-color: #808080;
-  }
+}
   
-  .neomorphic-link:hover {
+.neomorphic-link:hover {
     box-shadow: 3px 3px 5px #9e9ea4, 
                 -3px -3px 5px white;
-  }
+}
   
-  .neomorphic-link.active {
-    box-shadow: inset 2px 2px 4px #d9d9d9, inset -2px -2px 4px #ffffff; 
-  }
+.neomorphic-link.active {
+    box-shadow: 2px 2px 4px #d9d9d9, -2px -2px 4px #ffffff; 
+}
   
-  .material-icons {
+.material-icons {
     vertical-align: middle; 
     margin-right: 5px; 
-  }
-  
+}
+
