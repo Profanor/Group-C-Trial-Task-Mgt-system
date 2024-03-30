@@ -1,23 +1,32 @@
-import createError from 'http-errors';
 import express from 'express';
 import { Request, Response, NextFunction } from 'express';
+import createError from 'http-errors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import main from '../config/db'
+import cors from 'cors'
 
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname,"..",'public')));
+main().catch((err) => {
+  console.error(err);
+  process.exit(1); 
+});
+
+const FRONTEND_URL = process.env.FRONTEND_URL
+
+app.use(cors({
+  origin: FRONTEND_URL,
+   credentials: true
+}));
 
 //other middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,"..",'public')));
 
 //Routes
 import indexRouter from './routes/index';

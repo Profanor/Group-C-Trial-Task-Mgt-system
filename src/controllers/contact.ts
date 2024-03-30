@@ -2,17 +2,25 @@ import { Request, Response } from 'express';
 import nodemailer, { Transporter } from 'nodemailer';
 import handlebars from 'handlebars';
 import fs from 'fs';
+import Contact from '../models/contacts';
 
-const handleContactFormSubmission = async (req: Request, res: Response): Promise<void> => {
-  const { fullName, email, message } = req.body;
-
-  // Validate form data
-  if (!fullName || !email || !message) {
-    res.status(400).json({ error: 'Please fill out all fields' });
-    return;
-  }
-
-  try {
+  const handleContactFormSubmission = async (req: Request, res: Response): Promise<void> => {
+    try {
+    const { fullName, email, message } = req.body;
+    
+    // Validate form data
+    if (!fullName || !email || !message) {
+      res.status(400).json({ error: 'Please fill out all fields' });
+      return;
+    }
+    const newContact = await Contact.create({
+      fullName: 'david',
+      email: 'fivelanes72@gmail.com',
+      message: 'yo bro'
+    });
+    console.log(newContact);
+  
+  
     // Read email templates
     const subjectTemplate = fs.readFileSync('src/emailTemplates/emailSubject.hbs', 'utf8');
     const bodyTemplate = fs.readFileSync('src/emailTemplates/emailBody.hbs', 'utf8');
@@ -23,7 +31,7 @@ const handleContactFormSubmission = async (req: Request, res: Response): Promise
 
     // Render templates with form data
     const subject = compiledSubjectTemplate({ name: fullName });
-    const body = compiledBodyTemplate({ fullName, email, message });
+    const body = compiledBodyTemplate({ name, email, message });
 
     // Create email transporter
     const transporter: Transporter = nodemailer.createTransport({
@@ -44,8 +52,8 @@ const handleContactFormSubmission = async (req: Request, res: Response): Promise
 
     // Send the email
     const info = await transporter.sendMail(mailOptions);
-
     console.log('Email sent:', info.response);
+
     res.status(200).json({ message: 'Thank you for contacting us! We will get back to you soon.' });
   } catch (error) {
     console.error('Error:', error);

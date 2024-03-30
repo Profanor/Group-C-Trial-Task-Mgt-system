@@ -31,7 +31,7 @@ const Footer = () => {
             </a>
             <div><h3 className='label'>Twitter</h3></div>
           </div>
-          <div className='four' id= 'contact'>
+          <div className='four' id= 'links'>
             <a href='mailto:fivelanes72@gmail.com' target="_blank" rel="noopener noreferrer">
               <div className='rounded'>
                 <Email style={{ color: 'black', fontSize: 40 }} />

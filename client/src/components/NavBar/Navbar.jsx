@@ -29,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   const handleLinkClick = (link, elementId) => {
-    return (e) => {
+    return () => {
       smoothScrollTo(elementId);
       setActiveLink(link);
     };
@@ -50,7 +50,7 @@ const Navbar = () => {
           { label: 'Portfolio', id: 'portfolio', icon: <Work style={{ color: 'black' }} /> },
           { label: 'Service', id: 'service', icon: <Build style={{ color: 'black' }} /> },
           { label: 'Reviews', id: 'reviews', icon: <Star style={{ color: 'black' }} /> },
-          { label: 'Contact', id: 'contact', icon: <Email style={{ color: 'black' }} /> }
+          { label: 'Links', id: 'links', icon: <Email style={{ color: 'black' }} /> }
         ].map((item, index) => (
           <div key={index} className={`neomorphic-link ${activeLink === item.label.toLowerCase() ? 'active' : ''}`}>
             <Link
@@ -63,11 +63,9 @@ const Navbar = () => {
         ))}
       </div>
       <div>
-        <button className="btn" type="button">
-          <Link to="/" className="navbar-link">
+          <Link to="/contact" className="btn navbar-link" id="contact">
             Let's Talk
           </Link>
-        </button>
       </div>
     </nav>
   );
