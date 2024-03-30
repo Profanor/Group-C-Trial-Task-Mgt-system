@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // Routes
 import indexRouter from './routes/index';
@@ -56,7 +56,7 @@ app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
 
 // Serve the React app for any other route
 app.get('*', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 export default app;

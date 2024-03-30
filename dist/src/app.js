@@ -26,7 +26,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
 // Serve static files from the React app
-app.use(express_1.default.static(path_1.default.join(__dirname, '..', 'client', 'build')));
+app.use(express_1.default.static(path_1.default.join(__dirname, 'client', 'build')));
 // Routes
 const index_1 = __importDefault(require("./routes/index"));
 const users_1 = __importDefault(require("./routes/users"));
@@ -48,6 +48,6 @@ app.use(function (err, req, res, next) {
 });
 // Serve the React app for any other route
 app.get('*', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '..', 'client', 'build', 'index.html'));
+    res.sendFile(path_1.default.join(__dirname, 'client', 'build', 'index.html'));
 });
 exports.default = app;
